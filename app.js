@@ -9,14 +9,8 @@ const app = express();
 
 app.use(express.json());
 
-app.get("/characters/", async (req, res) => {
-  try {
-    const characters = await getCharacters();
-    res.json(characters);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ err: "Something went wrong" });
-  }
+app.get("/", (req, res) => {
+  res.send("Harry Potter Stuff");
 });
 
 app.get("/characters/:id", async (req, res) => {
